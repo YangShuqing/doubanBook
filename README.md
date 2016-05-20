@@ -4,6 +4,6 @@
 
 ##使用方法：
 1. 安装Scrapy 
-'sudo apt-get install scrapy'
+`sudo apt-get install scrapy`
 2. 切换至本目录
-‘scrapy crawl doubanBook’
+`scrapy crawl doubanBook`
