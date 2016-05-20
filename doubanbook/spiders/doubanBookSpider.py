@@ -24,14 +24,14 @@ class DoubanSpider(scrapy.Spider):
         books = selector.xpath('//div[@class="info"]/h2/a/@href').extract()
         for book in books:
             print book
-            yield Request(book, callback=self.getOneBook)
+            yield Request(book, callback=self.parse_item)
 
         nextPage = selector.xpath('//span[@class="next"]/a/@href').extract()
         if nextPage:
             print nextPage[0]
             #yield Request(self.url+nextPage[0],callback=self.parse)
 
-    def getOneBook(self,response):
+    def parse_item(self,response):
         item = DoubanbookItem()
         selector = Selector(response)
         name = selector.xpath('//div[@id="wrapper"]/h1/span/text()').extract()[0]
