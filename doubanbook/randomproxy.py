@@ -30,16 +30,19 @@ class RandomProxy(object):
 
         self.proxies = {}
         for line in fin.readlines():
-            parts = re.match('(\w+://)(\w+:\w+@)?(.+)', line)
+            # http://host1:port
+            # http://username:password@host2:port
+            parts = re.match('(\w+://)?(\w+:\w+@)?(.+)', line)
 
-            print parts
+            #print parts
             # Cut trailing @
-            if parts.group(2):
-                user_pass = parts.group(2)[:-1]
-            else:
-                user_pass = ''
+            if parts:
+                if parts.group(2):  #username and password
+                    user_pass = parts.group(2)[:-1]
+                else:
+                    user_pass = ''
 
-            self.proxies[parts.group(1) + parts.group(3)] = user_pass
+                self.proxies["http://" + parts.group(3)] = user_pass
 
         fin.close()
 

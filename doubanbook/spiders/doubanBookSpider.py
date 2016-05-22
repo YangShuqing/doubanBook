@@ -19,6 +19,7 @@ class DoubanSpider(scrapy.Spider):
     url = 'https://book.douban.com'
 
 
+
     def parse(self, response):
         selector = Selector(response)
         books = selector.xpath('//div[@class="info"]/h2/a/@href').extract()
@@ -29,7 +30,7 @@ class DoubanSpider(scrapy.Spider):
         nextPage = selector.xpath('//span[@class="next"]/a/@href').extract()
         if nextPage:
             print nextPage[0]
-            #yield Request(self.url+nextPage[0],callback=self.parse)
+            yield Request(self.url+nextPage[0],callback=self.parse)
 
     def parse_item(self,response):
         item = DoubanbookItem()
@@ -46,7 +47,7 @@ class DoubanSpider(scrapy.Spider):
         #     #publish =
         #     print auther
         #print book_info
-
+        bookImg = selector.xpath('a[@class="nbg"]/@href').extract()[0]
         book_info = selector.xpath('//div[@id="info"]').extract()[0].encode('utf8')
         author = re.findall(r'<a class="" href=".*?">(.*?)</a>', book_info)[0].decode('utf8')
         press = re.search(r'出版社:</span>(.*?)<br', book_info).group(1).strip().decode('utf8')
@@ -94,6 +95,7 @@ class DoubanSpider(scrapy.Spider):
         #print tags
 
         item['name'] = name
+        item['bookImg'] = bookImg
         item['press'] = press
         item['author'] = author
         item['star'] = star
