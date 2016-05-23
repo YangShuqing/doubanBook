@@ -47,7 +47,7 @@ class DoubanSpider(scrapy.Spider):
         #     #publish =
         #     print auther
         #print book_info
-        bookImg = selector.xpath('a[@class="nbg"]/@href').extract()[0]
+        bookImg = selector.xpath('//a[@class="nbg"]/@href').extract()[0]
         book_info = selector.xpath('//div[@id="info"]').extract()[0].encode('utf8')
         author = re.findall(r'<a class="" href=".*?">(.*?)</a>', book_info)[0].decode('utf8')
         press = re.search(r'出版社:</span>(.*?)<br', book_info).group(1).strip().decode('utf8')
