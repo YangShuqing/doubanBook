@@ -15,9 +15,9 @@ Scrapy 1.10
 `scrapy crawl doubanBook`
 
 ##一些配置选项：
-1. 默认抓取的是豆瓣图书关于历史的图书[豆瓣图书历史类](https://book.douban.com/tag/%E5%8E%86%E5%8F%B2),想要抓取全站可以
-2. 默认不开启代理IP中间件，如需开启可在setting.py中DOWNLOADER_MIDDLEWARES开启
-3. 代理ip默认使用文件，可在settring.py中PROXY_LIST设置代理文件位置，支持以下格式
+1. 默认抓取的是豆瓣图书关于历史的图书[豆瓣图书历史类](https://book.douban.com/tag/%E5%8E%86%E5%8F%B2),想要抓取全站可以在`doubanBookSpider.py`中`start_urls =[]`中设置更多初始网址[豆瓣图书热门标签](https://book.douban.com/tag/?view=type&icn=index-sorttags-all)
+2. 默认不开启代理IP中间件，如需开启可在`setting.py`中`DOWNLOADER_MIDDLEWARES`开启
+3. 代理ip默认使用文件，可在`setting.py`中`PROXY_LIST`设置代理文件位置，支持以下格式
 ```javascript
  http://host1:port
  http://username:password@host2:port
