@@ -15,7 +15,7 @@ sys.setdefaultencoding('utf8')
 class DoubanSpider(scrapy.Spider):
     name = "doubanBook"
     allowed_domains = ["douban.com"]
-	＃get more urls https://book.douban.com/tag/?view=type&icn=index-sorttags-all
+    #get more urls https://book.douban.com/tag/?view=type&icn=index-sorttags-all
     start_urls = ["https://book.douban.com/tag/%E5%8E%86%E5%8F%B2"]
     url = 'https://book.douban.com'
 
