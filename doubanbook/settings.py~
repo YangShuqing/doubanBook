@@ -58,7 +58,7 @@ DOWNLOADER_MIDDLEWARES = {
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
 	'doubanbook.useragent.RotateUserAgentMiddleware':300, #useragentMiddle shoul less than 400
     'doubanbook.middlewares.MyCustomDownloaderMiddleware': None,
-    'doubanbook.randomproxy.RandomProxy': None,#100 
+    'doubanbook.randomproxy.RandomProxy': None,#100
 	'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware': None,#110
 }
 
