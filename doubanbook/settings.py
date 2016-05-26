@@ -56,10 +56,10 @@ COOKIES_ENABLED = False
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
-	'doubanbook.useragent.RotateUserAgentMiddleware':300, #useragentMiddle shoul less than 400
+    'doubanbook.useragent.RotateUserAgentMiddleware':300, #useragentMiddle shoul less than 400
     'doubanbook.middlewares.MyCustomDownloaderMiddleware': None,
     'doubanbook.randomproxy.RandomProxy': None,#100 
-	'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware': None,#110
+    'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware': None,#110
 }
 
 # Enable or disable extensions
@@ -98,6 +98,6 @@ DOWNLOADER_MIDDLEWARES = {
 # Proxy list containing entries like
 # http://host1:port
 # http://username:password@host2:port
-# http://host3:port
+# host3:port
 # ...
 PROXY_LIST = '/home/ysq/iplist.txt'
